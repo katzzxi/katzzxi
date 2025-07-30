@@ -1,7 +1,5 @@
-/* Импорт шрифтов */
 @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -9,20 +7,19 @@
 }
 
 body {
+    margin: 0;
     font-family: "Montserrat", sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #333;
-    scroll-behavior: smooth;
 }
 
-/* Навигация */
 .header {
     background: #333;
     color: white;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     position: fixed;
     top: 0;
     left: 0;
@@ -43,8 +40,7 @@ body {
     align-items: center;
 }
 
-.nav-left,
-.nav-right {
+.nav-left, .nav-right {
     display: flex;
     gap: 2rem;
     flex: 1;
@@ -76,51 +72,32 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav a:hover::after,
-.nav a.active::after {
+.nav a:hover::after, .nav a.active::after {
     width: 100%;
 }
 
-.nav a:hover,
+.nav a:hover {
+    color: #d93a6c;
+}
+
 .nav a.active {
     color: #d93a6c;
 }
 
 a.logo {
     font-family: "Italiana", sans-serif;
+    font-weight: 400;
     font-size: 50px;
     color: #ffffff;
     margin: 0 2rem;
     text-decoration: none;
 }
 
-.booking-btn {
-    background: #d93a6c;
-    padding: 0.5rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 500;
-    border: 2px solid #d93a6c;
-    transition: all 0.3s ease;
-}
-
-.booking-btn:hover,
-.booking-btn.active {
-    background: transparent;
-    color: #d93a6c;
-}
-
-.booking-btn::after {
-    display: none;
-}
-
-/* Главная страница */
 .main {
-    flex: 1;
-    padding: 2rem;
+    min-height: 90vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
@@ -136,16 +113,10 @@ a.logo {
 }
 
 .bg video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    min-width: 200%;
-    min-height: 200%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     filter: brightness(60%);
-    transform: translate(-50%, -50%);
 }
 
 .content {
@@ -155,35 +126,38 @@ a.logo {
 }
 
 .content h1 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 60px;
-    font-weight: 400;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #fff;
 }
 
 .btn {
-    display: inline-flex;
-    border: 2px solid white;
+    display: inline-block;
+    border: white 2px solid;
     color: white;
     font-weight: 400;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     text-decoration: none;
     margin: 2rem auto;
-    width: 300px;
+    display: flex;
     justify-content: center;
+    width: 300px;
     transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .btn:hover {
-    background: rgba(0, 0, 0, 0.45);
+    background: #00000071;
     border-color: #000000;
     transform: scale(1.05) translateY(-5px);
 }
 
 .video-buttons {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     right: 0;
     display: flex;
@@ -193,6 +167,7 @@ a.logo {
 
 .video-btn {
     flex: 1;
+    display: inline-block;
     color: white;
     text-decoration: none;
     padding: 0.75rem;
@@ -209,7 +184,6 @@ a.logo {
     border-color: #000000;
 }
 
-/* Секция идеологии */
 .ideology-section {
     max-width: 800px;
     text-align: center;
@@ -236,7 +210,6 @@ a.logo {
     color: #e0e0e0;
 }
 
-/* Секция услуг */
 .services-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -281,6 +254,7 @@ a.logo {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .service-content {
@@ -307,7 +281,7 @@ a.logo {
     position: absolute;
     font-family: "Italiana", sans-serif;
     font-size: 15rem;
-    color: rgba(217, 58, 108, 0.5);
+    color: #d93a6c80;
     z-index: -1;
     pointer-events: none;
 }
@@ -316,6 +290,185 @@ a.logo {
 .number-2 { top: 25%; right: 2%; }
 .number-3 { top: 45%; left: 2%; }
 .number-4 { top: 65%; right: 2%; }
+
+@keyframes fadeInNumber {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    background: #171717;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Italiana", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    align-items: center;
+    display: flex;
+}
+
+.footer-links a:hover {
+    color: #ccc;
+}
+
+.footer-contact {
+    text-align: right;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.footer-contact p {
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+a.logo {
+    font-family: "Italiana", sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: #ffffff;
+}
+
+@keyframes expand {
+    from { max-height: 0; opacity: 0; }
+    to { max-height: 1000px; opacity: 1; }
+}
+
+@keyframes collapse {
+    from { max-height: 1000px; opacity: 1; }
+    to { max-height: 0; opacity: 0; }
+}
+
+/* Стили для страницы услуг */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    scroll-behavior: smooth;
+}
+
+.header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.nav-right {
+    justify-content: flex-start;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #d93a6c;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after, .nav a.active::after {
+    width: 100%;
+}
+
+.nav a:hover {
+    color: #d93a6c;
+}
+
+.nav a.active {
+    color: #d93a6c;
+}
+
+a.logo {
+    font-family: "Italiana", sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: #ffffff;
+    margin: 0 2rem;
+    text-decoration: none;
+}
+
+.main {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
 .services-list-section {
     max-width: 1200px;
@@ -387,6 +540,7 @@ a.logo {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    transition: background 0.3s ease;
 }
 
 .service-details .service-item:hover {
@@ -401,6 +555,7 @@ a.logo {
 
 .service-details .service-item p {
     font-family: "Montserrat", sans-serif;
+    font-weight: 400;
     font-size: 1rem;
     color: #e0e0e0;
 }
@@ -412,12 +567,16 @@ a.logo {
     color: #ffffff;
 }
 
-/* Секция специалистов */
+.main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
 .specialists-section {
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2rem;
-    color: #ffffff;
+    color: white;
 }
 
 .specialists-section h2 {
@@ -434,7 +593,7 @@ a.logo {
 }
 
 .specialist-card {
-    background: #b24265;
+    background-color: #b24265;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     overflow: hidden;
@@ -451,6 +610,7 @@ a.logo {
     width: 100%;
     height: 300px;
     overflow: hidden;
+    position: relative;
 }
 
 .specialist-image img {
@@ -471,29 +631,80 @@ a.logo {
 .specialist-info h3 {
     font-family: "Italiana", sans-serif;
     font-size: 1.8rem;
-    color: #ffffff;
+    color: white;
     margin-bottom: 0.5rem;
 }
 
 .specialist-info .role {
     font-family: "Montserrat", sans-serif;
+    font-weight: 400;
     font-size: 1.1rem;
-    color: #e0e0e0;
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
 .specialist-info .bio {
     font-family: "Montserrat", sans-serif;
+    font-weight: 400;
     font-size: 1rem;
-    color: #d2d2d2;
+    color: var(--text-lighter);
     line-height: 1.6;
 }
 
 .specialist-card:hover .bio {
-    color: #ffffff;
+    color: white;
 }
 
-/* Секция отзывов */
+.testimonials-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    color: white;
+}
+
+.testimonials-section h2 {
+    font-family: "Italiana", sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: var(--card-bg);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(217, 58, 108, 0.3);
+}
+
+.testimonial-card .quote {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .author {
+    font-family: "Italiana", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* Стили для секции отзывов */
 .testimonials-section {
     max-width: 1200px;
     margin: 4rem auto;
@@ -520,16 +731,13 @@ a.logo {
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(217, 58, 108, 0.3);
+    opacity: 0;
+    transform: translateY(50px);
 }
 
 .testimonial-card .quote {
     font-family: "Montserrat", sans-serif;
+    font-weight: 400;
     font-size: 1.1rem;
     color: #e0e0e0;
     line-height: 1.6;
@@ -542,7 +750,7 @@ a.logo {
     color: #ffffff;
 }
 
-/* Секция записи */
+/* Стили для страницы записи */
 .booking-section {
     max-width: 800px;
     margin: 4rem auto;
@@ -557,6 +765,7 @@ a.logo {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 3rem;
+    color: #ffffff;
 }
 
 .booking-section h3 {
@@ -564,6 +773,7 @@ a.logo {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
+    color: #ffffff;
 }
 
 .booking-form {
@@ -571,14 +781,21 @@ a.logo {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     padding: 2rem;
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+    transform: none;
 }
 
 .form-group {
     margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .form-group label {
     font-family: "Montserrat", sans-serif;
+    font-weight: 400;
     font-size: 1.1rem;
     color: #ffffff;
     display: block;
@@ -606,6 +823,8 @@ a.logo {
 
 .appointments-section {
     margin-top: 4rem;
+    position: relative;
+    z-index: 2;
 }
 
 .appointments-list {
@@ -625,6 +844,8 @@ a.logo {
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     color: #ffffff;
+    position: relative;
+    z-index: 2;
 }
 
 .no-appointments {
@@ -644,13 +865,39 @@ a.logo {
     font-family: "Montserrat", sans-serif;
     cursor: pointer;
     transition: background 0.3s ease;
+    position: relative;
+    z-index: 3;
 }
 
 .delete-btn:hover {
     background: #b24265;
 }
 
-/* Секция контактов */
+/* Добавляем стили для кнопки записи в навигации */
+.booking-btn {
+    background: #d93a6c;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    border: 2px solid #d93a6c;
+    transition: all 0.3s ease;
+}
+
+.booking-btn:hover {
+    background: transparent;
+    color: #d93a6c;
+}
+
+.booking-btn::after {
+    display: none;
+}
+
+.booking-btn.active {
+    background: transparent;
+    color: #d93a6c;
+}
+
+/* Стили для страницы контактов */
 .contacts-section {
     max-width: 800px;
     margin: 4rem auto;
@@ -672,6 +919,7 @@ a.logo {
 }
 
 .contact-info {
+    width: 100%;
     background: #b24265;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
@@ -682,8 +930,8 @@ a.logo {
 .contact-info h2 {
     font-family: "Italiana", sans-serif;
     font-size: 2.5rem;
-    text-align: center;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .contact-details {
@@ -803,25 +1051,71 @@ a.logo {
     padding: 1rem 3rem;
 }
 
-/* Секция новостей */
-.news-section {
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 2rem;
-    color: #ffffff;
+/* Стили для фильтров категорий */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
 }
 
-.news-section h1 {
+.category-btn {
+    background: transparent;
+    border: 2px solid #b24265;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+
+.category-btn:hover {
+    background: #b24265;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: #b24265;
+    border-color: #ffffff;
+}
+
+/* Стили для страницы новостей и галереи */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: #333;
+}
+
+/* Общие стили для секций */
+.news-section,
+.gallery-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.news-section h1,
+.gallery-section h2 {
     font-family: "Italiana", sans-serif;
     font-size: 4rem;
     text-align: center;
     margin-bottom: 3rem;
+    color: #ffffff;
 }
 
+/* Стили для новостей */
 .news-container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    width: 100%;
 }
 
 .news-card {
@@ -829,6 +1123,7 @@ a.logo {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     overflow: hidden;
+    width: 100%;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -853,16 +1148,12 @@ a.logo {
     transition: transform 0.5s ease;
 }
 
-.news-card:hover .news-image img {
-    transform: scale(1.1);
-}
-
 .category-tag {
     position: absolute;
     top: 20px;
     right: 20px;
     background: rgba(217, 58, 108, 0.9);
-    color: #ffffff;
+    color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-family: "Montserrat", sans-serif;
@@ -872,12 +1163,14 @@ a.logo {
 
 .news-content {
     padding: 2rem;
+    background: #b24265;
 }
 
 .news-date {
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     color: #e0e0e0;
+    display: inline-block;
     margin-bottom: 1rem;
 }
 
@@ -897,6 +1190,7 @@ a.logo {
 }
 
 .read-more {
+    display: inline-block;
     color: #ffffff;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
@@ -928,26 +1222,16 @@ a.logo {
     transform-origin: left;
 }
 
-/* Секция галереи */
+/* Стили для галереи */
 .gallery-section {
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 2rem;
-    color: #ffffff;
-    overflow: hidden;
-}
-
-.gallery-section h2 {
-    font-family: "Italiana", sans-serif;
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 3rem;
+    margin-top: 4rem;
 }
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%;
 }
 
 .gallery-item {
@@ -965,10 +1249,6 @@ a.logo {
     transition: transform 0.5s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
 .gallery-overlay {
     position: absolute;
     top: 0;
@@ -981,6 +1261,10 @@ a.logo {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -1001,178 +1285,42 @@ a.logo {
     transform: translateY(0);
 }
 
-/* Фильтры категорий */
-.category-filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.category-btn {
-    background: transparent;
-    border: 2px solid #b24265;
-    color: #ffffff;
-    padding: 0.8rem 1.5rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.category-btn:hover {
-    background: #b24265;
-    transform: translateY(-2px);
-}
-
-.category-btn.active {
-    background: #b24265;
-    border-color: #ffffff;
-}
-
-/* Футер */
-footer {
-    background: #171717;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: fadeIn 1s ease-out forwards;
-}
-
-.footer-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-family: "Italiana", sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #ccc;
-}
-
-.footer-contact {
-    text-align: right;
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #e0e0e0;
-}
-
-.footer-contact p {
-    margin: 0;
-}
-
 /* Анимации */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes floatIn {
-    0% { opacity: 0; transform: translateY(50px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes fadeInNumber {
-    0% { opacity: 0; transform: translateY(50px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes expand {
-    from { max-height: 0; opacity: 0; }
-    to { max-height: 1000px; opacity: 1; }
-}
-
-@keyframes collapse {
-    from { max-height: 1000px; opacity: 1; }
-    to { max-height: 0; opacity: 0; }
-}
-
-/* Адаптивность */
+/* Медиа-запросы */
 @media (max-width: 768px) {
-    .header {
-        padding: 0.5rem;
-    }
-
-    .nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-left,
-    .nav-right {
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        text-align: center;
-    }
-
-    a.logo {
-        margin: 1rem 0;
-        font-size: 40px;
-    }
-
-    .bg video {
-        min-width: 300%;
-        min-height: 300%;
-    }
-
     .content h1 {
         font-size: 1.8rem;
     }
-
-    .btn {
-        width: 250px;
-        padding: 0.5rem 1rem;
+    .nav {
+        gap: 1rem;
     }
+}
 
-    .video-btn {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .ideology-section {
-        padding: 1rem;
-    }
-
-    .ideology-section h2 {
-        font-size: 2rem;
-    }
-
-    .ideology-section p {
-        font-size: 1rem;
-    }
-
-    .services-section h2,
-    .services-list-section h2,
-    .specialists-section h2,
-    .testimonials-section h2,
-    .booking-section h2,
-    .contacts-section h1,
-    .directions-section h2,
-    .news-section h1,
-    .gallery-section h2 {
+@media (max-width: 768px) {
+    .services-section h2 {
         font-size: 2rem;
     }
 
     .service-item {
         flex-direction: column;
         text-align: center;
-        margin-bottom: 2rem;
+        transform: translateY(50px);
     }
 
     .service-item:nth-child(even) {
         flex-direction: column;
+        transform: translateY(50px);
     }
 
     .service-image {
@@ -1190,15 +1338,35 @@ footer {
 
     .background-number {
         font-size: 6rem;
+        top: auto;
     }
 
     .number-1 { top: 10%; left: 5%; }
     .number-2 { top: 30%; right: 5%; }
     .number-3 { top: 50%; left: 5%; }
     .number-4 { top: 70%; right: 5%; }
+}
 
-    .services-list-section {
-        padding: 1rem;
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-list-section h2 {
+        font-size: 2rem;
     }
 
     .service-toggle {
@@ -1217,13 +1385,52 @@ footer {
         font-size: 1rem;
     }
 
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-category, .service-details {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .service-toggle .toggle-icon {
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .specialists-section h2, .testimonials-section h2 {
+        font-size: 2rem;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+
     .specialists-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
     .specialist-card {
-        margin: 0 1rem;
+        margin: 0;
+        max-width: 100%;
     }
 
     .specialist-image {
@@ -1244,10 +1451,12 @@ footer {
 
     .testimonials-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .testimonial-card {
-        margin: 0 1rem;
+        margin: 0;
+        max-width: 100%;
     }
 
     .testimonial-card .quote {
@@ -1258,8 +1467,52 @@ footer {
         font-size: 1.1rem;
     }
 
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    a.logo {
+        margin: 1rem 0;
+        font-size: 40px;
+    }
+
+    .btn {
+        width: 250px;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .specialist-card, .testimonial-card {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .specialist-image img, .specialist-image .overlay {
+        transition: none;
+    }
+
+    .btn {
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
     .booking-section {
         padding: 1rem;
+    }
+
+    .booking-section h2 {
+        font-size: 2rem;
     }
 
     .booking-section h3 {
@@ -1290,10 +1543,93 @@ footer {
         text-align: center;
         margin-top: 0.5rem;
     }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    .specialist-card,
+    .testimonial-card,
+    .background-number,
+    .booking-form,
+    .appointment-item {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .specialists-section h2,
+    .testimonials-section h2,
+    .booking-section h2 {
+        font-size: 2rem;
+    }
+
+    .booking-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .specialist-card {
+        margin: 0 1rem;
+    }
+
+    .specialist-image {
+        height: 200px;
+    }
+
+    .specialist-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .specialist-info .role {
+        font-size: 1rem;
+    }
+
+    .specialist-info .bio {
+        font-size: 0.9rem;
+    }
+
+    .testimonials-container {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card .quote {
+        font-size: 1rem;
+    }
+
+    .testimonial-card .author {
+        font-size: 1.1rem;
+    }
+
+    .booking-form {
+        padding: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 0.9rem;
+    }
+
+    .appointment-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
     .contacts-section,
     .directions-section {
         padding: 1rem;
+    }
+
+    .contacts-section h1,
+    .directions-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
     .contact-info,
@@ -1332,10 +1668,51 @@ footer {
     .contact-map {
         height: 300px;
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .specialist-card, .testimonial-card, .contact-info, .contact-map, .directions-content {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .specialist-image img, .specialist-image .overlay {
+        transition: none;
+    }
+
+    .btn {
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 1rem;
+    }
 
     .news-section,
     .gallery-section {
         padding: 1rem;
+    }
+
+    .news-section h1,
+    .gallery-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .category-filters {
+        gap: 0.5rem;
+    }
+
+    .category-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .news-card {
+        margin-bottom: 2rem;
     }
 
     .news-image {
@@ -1362,114 +1739,12 @@ footer {
         font-size: 0.8rem;
     }
 
-    .category-filters {
-        gap: 0.5rem;
-    }
-
-    .category-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-    }
-
     .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1rem;
     }
 
     .gallery-overlay p {
         font-size: 1.2rem;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-contact {
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .bg video {
-        min-width: 350%;
-        min-height: 350%;
-    }
-
-    .content h1 {
-        font-size: 1.5rem;
-    }
-
-    .btn {
-        width: 200px;
-        font-size: 0.9rem;
-    }
-
-    .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-}
-
-@media (max-width: 360px) {
-    .bg video {
-        min-width: 400%;
-        min-height: 400%;
-    }
-
-    .content h1 {
-        font-size: 1.2rem;
-    }
-
-    a.logo {
-        font-size: 30px;
-    }
-
-    .nav a {
-        font-size: 16px;
-    }
-
-    .booking-btn {
-        width: 180px;
-        font-size: 14px;
-        padding: 0.4rem 1rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .header,
-    .btn,
-    .video-btn,
-    .service-category,
-    .service-details,
-    .service-toggle .toggle-icon,
-    .specialist-card,
-    .testimonial-card,
-    .contact-info,
-    .contact-item,
-    .contact-map,
-    .directions-content,
-    .direction-item,
-    .news-card,
-    .gallery-item,
-    .gallery-overlay,
-    .gallery-overlay p,
-    .background-number,
-    .booking-form,
-    .appointment-item {
-        transition: none;
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
-
-    .specialist-image img,
-    .news-image img {
-        transition: none;
     }
 }
