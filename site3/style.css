@@ -1,6 +1,7 @@
-
+/* Импорт шрифтов */
 @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -8,19 +9,20 @@
 }
 
 body {
-    margin: 0;
     font-family: "Montserrat", sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-color: #333;
+    scroll-behavior: smooth;
 }
 
+/* Навигация */
 .header {
     background: #333;
     color: white;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;
     left: 0;
@@ -41,7 +43,8 @@ body {
     align-items: center;
 }
 
-.nav-left, .nav-right {
+.nav-left,
+.nav-right {
     display: flex;
     gap: 2rem;
     flex: 1;
@@ -73,32 +76,51 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav a:hover::after, .nav a.active::after {
+.nav a:hover::after,
+.nav a.active::after {
     width: 100%;
 }
 
-.nav a:hover {
-    color: #d93a6c;
-}
-
+.nav a:hover,
 .nav a.active {
     color: #d93a6c;
 }
 
 a.logo {
     font-family: "Italiana", sans-serif;
-    font-weight: 400;
     font-size: 50px;
     color: #ffffff;
     margin: 0 2rem;
     text-decoration: none;
 }
 
+.booking-btn {
+    background: #d93a6c;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    border: 2px solid #d93a6c;
+    transition: all 0.3s ease;
+}
+
+.booking-btn:hover,
+.booking-btn.active {
+    background: transparent;
+    color: #d93a6c;
+}
+
+.booking-btn::after {
+    display: none;
+}
+
+/* Главная страница */
 .main {
-    min-height: 90vh;
+    flex: 1;
+    padding: 2rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    width: 100%;
     position: relative;
     z-index: 1;
 }
@@ -114,10 +136,16 @@ a.logo {
 }
 
 .bg video {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    min-width: 200%;
+    min-height: 200%;
     object-fit: cover;
     filter: brightness(60%);
+    transform: translate(-50%, -50%);
 }
 
 .content {
@@ -127,47 +155,35 @@ a.logo {
 }
 
 .content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 60px;
-    color: #fff;
+    font-weight: 400;
+    margin-bottom: 1rem;
 }
 
 .btn {
-    display: inline-block;
-    border: white 2px solid;
+    display: inline-flex;
+    border: 2px solid white;
     color: white;
     font-weight: 400;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     text-decoration: none;
     margin: 2rem auto;
-    display: flex;
-    justify-content: center;
     width: 300px;
+    justify-content: center;
     transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .btn:hover {
-    background: #00000071;
+    background: rgba(0, 0, 0, 0.45);
     border-color: #000000;
     transform: scale(1.05) translateY(-5px);
 }
 
-@media (max-width: 768px) {
-    .content h1 {
-        font-size: 1.8rem;
-    }
-    .nav {
-        gap: 1rem;
-    }
-}
-
 .video-buttons {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     right: 0;
     display: flex;
@@ -177,7 +193,6 @@ a.logo {
 
 .video-btn {
     flex: 1;
-    display: inline-block;
     color: white;
     text-decoration: none;
     padding: 0.75rem;
@@ -194,352 +209,113 @@ a.logo {
     border-color: #000000;
 }
 
-
-        .ideology-section {
-            max-width: 800px;
-            text-align: center;
-            padding: 2rem;
-            background: #b24265;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            margin: 20px auto;
-        }
-
-        .ideology-section h2 {
-            font-family: "Italiana", sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-        }
-
-        .ideology-section p {
-            font-family: "Montserrat", sans-serif;
-            font-weight: 400;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #e0e0e0;
-        }
-
-        .services-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-            position: relative;
-        }
-
-        .services-section h2 {
-            font-family: "Italiana", sans-serif;
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #ffffff;
-        }
-
-        .service-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 4rem;
-            gap: 2rem;
-        }
-
-        .service-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .service-image {
-            flex: 1;
-            max-width: 40%;
-            height: 400px;
-            background: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .service-image:hover {
-            transform: scale(1.02);
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .service-content {
-            flex: 1;
-            padding: 1rem;
-        }
-
-        .service-content h3 {
-            font-family: "Italiana", sans-serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        .service-content p {
-            font-family: "Montserrat", sans-serif;
-            font-weight: 400;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #dedede;
-        }
-
-        .background-number {
-            position: absolute;
-            font-family: "Italiana", sans-serif;
-            font-size: 15rem;
-            color: #d93a6c80;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .number-1 { top: 5%; left: 2%; }
-        .number-2 { top: 25%; right: 2%; }
-        .number-3 { top: 45%; left: 2%; }
-        .number-4 { top: 65%; right: 2%; }
-
-
-@keyframes fadeInNumber {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .services-section h2 {
-        font-size: 2rem;
-    }
-
-    .service-item {
-        flex-direction: column;
-        text-align: center;
-        transform: translateY(50px);
-    }
-
-    .service-item:nth-child(even) {
-        flex-direction: column;
-        transform: translateY(50px);
-    }
-
-    .service-image {
-        max-width: 100%;
-        height: 200px;
-    }
-
-    .service-content h3 {
-        font-size: 1.5rem;
-    }
-
-    .service-content p {
-        font-size: 1rem;
-    }
-
-    .background-number {
-        font-size: 6rem;
-        top: auto;
-    }
-
-    .number-1 { top: 10%; left: 5%; }
-    .number-2 { top: 30%; right: 5%; }
-    .number-3 { top: 50%; left: 5%; }
-    .number-4 { top: 70%; right: 5%; }
-}
-
-footer {
-    background: #171717;
+/* Секция идеологии */
+.ideology-section {
+    max-width: 800px;
+    text-align: center;
     padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
+    background: #b24265;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
 }
 
-.footer-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
+.ideology-section h2 {
     font-family: "Italiana", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    transition: color 0.3s;
-    align-items: center;
-    display: flex;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
-.footer-links a:hover {
-    color: #ccc;
-}
-
-.footer-contact {
-    text-align: right;
+.ideology-section p {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     color: #e0e0e0;
 }
 
-.footer-contact p {
-    margin: 0;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-contact {
-        text-align: center;
-    }
-}
-
-a.logo {
-    font-family: "Italiana", sans-serif;
-    font-weight: 400;
-    font-size: 50px;
-    color: #ffffff;
-}
-
-@keyframes expand {
-    from { max-height: 0; opacity: 0; }
-    to { max-height: 1000px; opacity: 1; }
-}
-
-@keyframes collapse {
-    from { max-height: 1000px; opacity: 1; }
-    to { max-height: 0; opacity: 0; }
-}
-
-/* Стили для страницы услуг */
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Montserrat", sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #333;
-    scroll-behavior: smooth;
-}
-
-.header {
-    background: #333;
-    color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav {
+/* Секция услуг */
+.services-section {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-left, .nav-right {
-    display: flex;
-    gap: 2rem;
-    flex: 1;
-    justify-content: flex-end;
-}
-
-.nav-right {
-    justify-content: flex-start;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 400;
+    padding: 2rem 0;
     position: relative;
-    transition: color 0.3s ease;
 }
 
-.nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #d93a6c;
-    transition: width 0.3s ease;
-}
-
-.nav a:hover::after, .nav a.active::after {
-    width: 100%;
-}
-
-.nav a:hover {
-    color: #d93a6c;
-}
-
-.nav a.active {
-    color: #d93a6c;
-}
-
-a.logo {
+.services-section h2 {
     font-family: "Italiana", sans-serif;
-    font-weight: 400;
-    font-size: 50px;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
     color: #ffffff;
-    margin: 0 2rem;
-    text-decoration: none;
 }
 
-.main {
-    min-height: 90vh;
+.service-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    margin-bottom: 4rem;
+    gap: 2rem;
 }
 
+.service-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
 
+.service-image {
+    flex: 1;
+    max-width: 40%;
+    height: 400px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.service-image:hover {
+    transform: scale(1.02);
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-content {
+    flex: 1;
+    padding: 1rem;
+}
+
+.service-content h3 {
+    font-family: "Italiana", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.service-content p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dedede;
+}
+
+.background-number {
+    position: absolute;
+    font-family: "Italiana", sans-serif;
+    font-size: 15rem;
+    color: rgba(217, 58, 108, 0.5);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.number-1 { top: 5%; left: 2%; }
+.number-2 { top: 25%; right: 2%; }
+.number-3 { top: 45%; left: 2%; }
+.number-4 { top: 65%; right: 2%; }
 
 .services-list-section {
     max-width: 1200px;
@@ -611,7 +387,6 @@ a.logo {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    transition: background 0.3s ease;
 }
 
 .service-details .service-item:hover {
@@ -626,7 +401,6 @@ a.logo {
 
 .service-details .service-item p {
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 1rem;
     color: #e0e0e0;
 }
@@ -638,67 +412,12 @@ a.logo {
     color: #ffffff;
 }
 
-
-@media (max-width: 768px) {
-    .services-list-section h2 {
-        font-size: 2rem;
-    }
-
-    .service-toggle {
-        font-size: 1.5rem;
-    }
-
-    .service-details .service-item h3 {
-        font-size: 1.3rem;
-    }
-
-    .service-details .service-item p {
-        font-size: 0.9rem;
-    }
-
-    .service-details .service-item .price {
-        font-size: 1rem;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .footer-contact {
-        text-align: center;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .service-category, .service-details {
-        transition: none;
-        opacity: 1;
-        transform: none;
-    }
-
-    .service-toggle .toggle-icon {
-        transition: none;
-    }
-}
-
-.main {
-    flex: 1;
-    padding: 2rem 0;
-}
-
-
+/* Секция специалистов */
 .specialists-section {
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2rem;
-    color: white;
+    color: #ffffff;
 }
 
 .specialists-section h2 {
@@ -715,7 +434,7 @@ a.logo {
 }
 
 .specialist-card {
-    background-color: #b24265;
+    background: #b24265;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     overflow: hidden;
@@ -732,7 +451,6 @@ a.logo {
     width: 100%;
     height: 300px;
     overflow: hidden;
-    position: relative;
 }
 
 .specialist-image img {
@@ -746,8 +464,6 @@ a.logo {
     transform: scale(1.1);
 }
 
-
-
 .specialist-info {
     padding: 1.5rem;
 }
@@ -755,35 +471,34 @@ a.logo {
 .specialist-info h3 {
     font-family: "Italiana", sans-serif;
     font-size: 1.8rem;
-    color: white;
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
 .specialist-info .role {
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: #e0e0e0;
     margin-bottom: 1rem;
 }
 
 .specialist-info .bio {
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 1rem;
-    color: var(--text-lighter);
+    color: #d2d2d2;
     line-height: 1.6;
 }
 
 .specialist-card:hover .bio {
-    color: white;
+    color: #ffffff;
 }
 
+/* Секция отзывов */
 .testimonials-section {
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2rem;
-    color: white;
+    color: #ffffff;
 }
 
 .testimonials-section h2 {
@@ -800,7 +515,7 @@ a.logo {
 }
 
 .testimonial-card {
-    background: var(--card-bg);
+    background: #b24265;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     padding: 2rem;
@@ -815,150 +530,6 @@ a.logo {
 
 .testimonial-card .quote {
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    font-size: 1.1rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.testimonial-card .author {
-    font-family: "Italiana", sans-serif;
-    font-size: 1.2rem;
-    color: white;
-}
-
-
-@media (max-width: 768px) {
-    .specialists-section h2, .testimonials-section h2 {
-        font-size: 2rem;
-    }
-
-    .main{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .specialists-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        
-    }
-
-    .specialist-card {
-        margin: 0;
-        max-width: 100%;
-    }
-
-    .specialist-image {
-        height: 200px;
-    }
-
-    .specialist-info h3 {
-        font-size: 1.5rem;
-    }
-
-    .specialist-info .role {
-        font-size: 1rem;
-    }
-
-    .specialist-info .bio {
-        font-size: 0.9rem;
-    }
-
-    .testimonials-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .testimonial-card {
-        margin: 0;
-        max-width: 100%;
-    }
-
-    .testimonial-card .quote {
-        font-size: 1rem;
-    }
-
-    .testimonial-card .author {
-        font-size: 1.1rem;
-    }
-
-    .nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-left, .nav-right {
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        text-align: center;
-    }
-
-    a.logo {
-        margin: 1rem 0;
-        font-size: 40px;
-    }
-
-    .btn {
-        width: 250px;
-        padding: 0.5rem 1rem;
-    }
-
-    
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .specialist-card, .testimonial-card {
-        transition: none;
-        opacity: 1;
-        transform: none;
-    }
-
-    .specialist-image img, .specialist-image .overlay {
-        transition: none;
-    }
-
-    .btn {
-        transition: none;
-    }
-}
-
-/* Стили для секции отзывов */
-.testimonials-section {
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 2rem;
-    color: #ffffff;
-}
-
-.testimonials-section h2 {
-    font-family: "Italiana", sans-serif;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.testimonial-card {
-    background: #b24265;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-.testimonial-card .quote {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 1.1rem;
     color: #e0e0e0;
     line-height: 1.6;
@@ -971,7 +542,7 @@ a.logo {
     color: #ffffff;
 }
 
-/* Стили для страницы записи */
+/* Секция записи */
 .booking-section {
     max-width: 800px;
     margin: 4rem auto;
@@ -986,7 +557,6 @@ a.logo {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #ffffff;
 }
 
 .booking-section h3 {
@@ -994,7 +564,6 @@ a.logo {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
-    color: #ffffff;
 }
 
 .booking-form {
@@ -1002,21 +571,14 @@ a.logo {
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     padding: 2rem;
-    position: relative;
-    z-index: 2;
-    opacity: 1;
-    transform: none;
 }
 
 .form-group {
     margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 3;
 }
 
 .form-group label {
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
     font-size: 1.1rem;
     color: #ffffff;
     display: block;
@@ -1044,8 +606,6 @@ a.logo {
 
 .appointments-section {
     margin-top: 4rem;
-    position: relative;
-    z-index: 2;
 }
 
 .appointments-list {
@@ -1065,8 +625,6 @@ a.logo {
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     color: #ffffff;
-    position: relative;
-    z-index: 2;
 }
 
 .no-appointments {
@@ -1086,159 +644,13 @@ a.logo {
     font-family: "Montserrat", sans-serif;
     cursor: pointer;
     transition: background 0.3s ease;
-    position: relative;
-    z-index: 3;
 }
 
 .delete-btn:hover {
     background: #b24265;
 }
 
-/* Добавляем стили для кнопки записи в навигации */
-.booking-btn {
-    background: #d93a6c;
-    padding: 0.5rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 500;
-    border: 2px solid #d93a6c;
-    transition: all 0.3s ease;
-}
-
-.booking-btn:hover {
-    background: transparent;
-    color: #d93a6c;
-}
-
-.booking-btn::after {
-    display: none;
-}
-
-.booking-btn.active {
-    background: transparent;
-    color: #d93a6c;
-}
-
-@media (max-width: 768px) {
-    .booking-section {
-        padding: 1rem;
-    }
-
-    .booking-section h2 {
-        font-size: 2rem;
-    }
-
-    .booking-section h3 {
-        font-size: 1.5rem;
-    }
-
-    .booking-form {
-        padding: 1.5rem;
-    }
-
-    .form-group label {
-        font-size: 1rem;
-    }
-
-    .form-group input,
-    .form-group select {
-        font-size: 0.9rem;
-    }
-
-    .appointment-item {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .booking-btn {
-        width: 200px;
-        text-align: center;
-        margin-top: 0.5rem;
-    }
-}
-
-
-
-
-@media (prefers-reduced-motion: reduce) {
-    .specialist-card,
-    .testimonial-card,
-    .background-number,
-    .booking-form,
-    .appointment-item {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .specialists-section h2,
-    .testimonials-section h2,
-    .booking-section h2 {
-        font-size: 2rem;
-    }
-
-    .booking-section h3 {
-        font-size: 1.5rem;
-    }
-
-    .specialist-card {
-        margin: 0 1rem;
-    }
-
-    .specialist-image {
-        height: 200px;
-    }
-
-    .specialist-info h3 {
-        font-size: 1.5rem;
-    }
-
-    .specialist-info .role {
-        font-size: 1rem;
-    }
-
-    .specialist-info .bio {
-        font-size: 0.9rem;
-    }
-
-    .testimonials-container {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial-card .quote {
-        font-size: 1rem;
-    }
-
-    .testimonial-card .author {
-        font-size: 1.1rem;
-    }
-
-    .booking-form {
-        padding: 1.5rem;
-    }
-
-    .form-group label {
-        font-size: 1rem;
-    }
-
-    .form-group input,
-    .form-group select {
-        font-size: 0.9rem;
-    }
-
-    .appointment-item {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-}
-
-
-
-
-/* Стили для страницы контактов */
+/* Секция контактов */
 .contacts-section {
     max-width: 800px;
     margin: 4rem auto;
@@ -1260,7 +672,6 @@ a.logo {
 }
 
 .contact-info {
-    width: 100%;
     background: #b24265;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
@@ -1271,8 +682,8 @@ a.logo {
 .contact-info h2 {
     font-family: "Italiana", sans-serif;
     font-size: 2.5rem;
-    margin-bottom: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .contact-details {
@@ -1392,16 +803,497 @@ a.logo {
     padding: 1rem 3rem;
 }
 
+/* Секция новостей */
+.news-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    color: #ffffff;
+}
+
+.news-section h1 {
+    font-family: "Italiana", sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.news-card {
+    background: #b24265;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.news-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.1);
+}
+
+.category-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(217, 58, 108, 0.9);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+.news-content {
+    padding: 2rem;
+}
+
+.news-date {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+}
+
+.news-content h2 {
+    font-family: "Italiana", sans-serif;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: #ffffff;
+}
+
+.news-content p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.read-more {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.read-more::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+    transform: translateX(10px);
+}
+
+.read-more:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Секция галереи */
+.gallery-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.gallery-section h2 {
+    font-family: "Italiana", sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(178, 66, 101, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay p {
+    color: #ffffff;
+    font-family: "Italiana", sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay p {
+    transform: translateY(0);
+}
+
+/* Фильтры категорий */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background: transparent;
+    border: 2px solid #b24265;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background: #b24265;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: #b24265;
+    border-color: #ffffff;
+}
+
+/* Футер */
+footer {
+    background: #171717;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Italiana", sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ccc;
+}
+
+.footer-contact {
+    text-align: right;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.footer-contact p {
+    margin: 0;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInNumber {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes expand {
+    from { max-height: 0; opacity: 0; }
+    to { max-height: 1000px; opacity: 1; }
+}
+
+@keyframes collapse {
+    from { max-height: 1000px; opacity: 1; }
+    to { max-height: 0; opacity: 0; }
+}
+
+/* Адаптивность */
 @media (max-width: 768px) {
-    .contacts-section,
-    .directions-section {
+    .header {
+        padding: 0.5rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-left,
+    .nav-right {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    a.logo {
+        margin: 1rem 0;
+        font-size: 40px;
+    }
+
+    .bg video {
+        min-width: 300%;
+        min-height: 300%;
+    }
+
+    .content h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        width: 250px;
+        padding: 0.5rem 1rem;
+    }
+
+    .video-btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .ideology-section {
         padding: 1rem;
     }
 
-    .contacts-section h1,
-    .directions-section h2 {
+    .ideology-section h2 {
         font-size: 2rem;
+    }
+
+    .ideology-section p {
+        font-size: 1rem;
+    }
+
+    .services-section h2,
+    .services-list-section h2,
+    .specialists-section h2,
+    .testimonials-section h2,
+    .booking-section h2,
+    .contacts-section h1,
+    .directions-section h2,
+    .news-section h1,
+    .gallery-section h2 {
+        font-size: 2rem;
+    }
+
+    .service-item {
+        flex-direction: column;
+        text-align: center;
         margin-bottom: 2rem;
+    }
+
+    .service-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .service-image {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .service-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .service-content p {
+        font-size: 1rem;
+    }
+
+    .background-number {
+        font-size: 6rem;
+    }
+
+    .number-1 { top: 10%; left: 5%; }
+    .number-2 { top: 30%; right: 5%; }
+    .number-3 { top: 50%; left: 5%; }
+    .number-4 { top: 70%; right: 5%; }
+
+    .services-list-section {
+        padding: 1rem;
+    }
+
+    .service-toggle {
+        font-size: 1.5rem;
+    }
+
+    .service-details .service-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .service-details .service-item p {
+        font-size: 0.9rem;
+    }
+
+    .service-details .service-item .price {
+        font-size: 1rem;
+    }
+
+    .specialists-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .specialist-card {
+        margin: 0 1rem;
+    }
+
+    .specialist-image {
+        height: 200px;
+    }
+
+    .specialist-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .specialist-info .role {
+        font-size: 1rem;
+    }
+
+    .specialist-info .bio {
+        font-size: 0.9rem;
+    }
+
+    .testimonials-container {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        margin: 0 1rem;
+    }
+
+    .testimonial-card .quote {
+        font-size: 1rem;
+    }
+
+    .testimonial-card .author {
+        font-size: 1.1rem;
+    }
+
+    .booking-section {
+        padding: 1rem;
+    }
+
+    .booking-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .booking-form {
+        padding: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 0.9rem;
+    }
+
+    .appointment-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .booking-btn {
+        width: 200px;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    .contacts-section,
+    .directions-section {
+        padding: 1rem;
     }
 
     .contact-info,
@@ -1440,307 +1332,10 @@ a.logo {
     .contact-map {
         height: 300px;
     }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .specialist-card, .testimonial-card, .contact-info, .contact-map, .directions-content {
-        transition: none;
-        opacity: 1;
-        transform: none;
-    }
-
-    .specialist-image img, .specialist-image .overlay {
-        transition: none;
-    }
-
-    .btn {
-        transition: none;
-    }
-}
-
-
-
-/* ... existing code ... */
-
-/* Стили для фильтров категорий */
-.category-filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-}
-
-.category-btn {
-    background: transparent;
-    border: 2px solid #b24265;
-    color: #ffffff;
-    padding: 0.8rem 1.5rem;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 30px;
-}
-
-.category-btn:hover {
-    background: #b24265;
-    transform: translateY(-2px);
-}
-
-.category-btn.active {
-    background: #b24265;
-    border-color: #ffffff;
-}
-
-/* ... existing code ... */
-
-
-/* ... existing code ... */
-
-/* Стили для страницы новостей и галереи */
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-    background-color: #333;
-}
-
-/* Общие стили для секций */
-.news-section,
-.gallery-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.news-section h1,
-.gallery-section h2 {
-    font-family: "Italiana", sans-serif;
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #ffffff;
-}
-
-/* Стили для новостей */
-.news-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    width: 100%;
-}
-
-.news-card {
-    background: #b24265;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.news-image {
-    width: 100%;
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-}
-
-.news-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.category-tag {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(217, 58, 108, 0.9);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 0.9rem;
-    z-index: 1;
-}
-
-.news-content {
-    padding: 2rem;
-    background: #b24265;
-}
-
-.news-date {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    color: #e0e0e0;
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.news-content h2 {
-    font-family: "Italiana", sans-serif;
-    font-size: 2.5rem;
-    margin: 1rem 0;
-    color: #ffffff;
-}
-
-.news-content p {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.read-more {
-    display: inline-block;
-    color: #ffffff;
-    text-decoration: none;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.read-more::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #ffffff;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.read-more:hover {
-    transform: translateX(10px);
-}
-
-.read-more:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-/* Стили для галереи */
-.gallery-section {
-    margin-top: 4rem;
-}
-
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    width: 100%;
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    aspect-ratio: 1;
-    cursor: pointer;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(178, 66, 101, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-overlay p {
-    color: #ffffff;
-    font-family: "Italiana", sans-serif;
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 1rem;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay p {
-    transform: translateY(0);
-}
-
-/* Анимации */
-@keyframes floatIn {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Медиа-запросы для адаптивности */
-@media (max-width: 768px) {
-    .main {
-        padding: 1rem;
-    }
 
     .news-section,
     .gallery-section {
         padding: 1rem;
-    }
-
-    .news-section h1,
-    .gallery-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .category-filters {
-        gap: 0.5rem;
-    }
-
-    .category-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .news-card {
-        margin-bottom: 2rem;
     }
 
     .news-image {
@@ -1767,14 +1362,114 @@ a.logo {
         font-size: 0.8rem;
     }
 
+    .category-filters {
+        gap: 0.5rem;
+    }
+
+    .category-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
     .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1rem;
     }
 
     .gallery-overlay p {
         font-size: 1.2rem;
     }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
 }
 
-/* ... existing code ... */
+@media (max-width: 480px) {
+    .bg video {
+        min-width: 350%;
+        min-height: 350%;
+    }
+
+    .content h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 200px;
+        font-size: 0.9rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 360px) {
+    .bg video {
+        min-width: 400%;
+        min-height: 400%;
+    }
+
+    .content h1 {
+        font-size: 1.2rem;
+    }
+
+    a.logo {
+        font-size: 30px;
+    }
+
+    .nav a {
+        font-size: 16px;
+    }
+
+    .booking-btn {
+        width: 180px;
+        font-size: 14px;
+        padding: 0.4rem 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header,
+    .btn,
+    .video-btn,
+    .service-category,
+    .service-details,
+    .service-toggle .toggle-icon,
+    .specialist-card,
+    .testimonial-card,
+    .contact-info,
+    .contact-item,
+    .contact-map,
+    .directions-content,
+    .direction-item,
+    .news-card,
+    .gallery-item,
+    .gallery-overlay,
+    .gallery-overlay p,
+    .background-number,
+    .booking-form,
+    .appointment-item {
+        transition: none;
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .specialist-image img,
+    .news-image img {
+        transition: none;
+    }
+}
