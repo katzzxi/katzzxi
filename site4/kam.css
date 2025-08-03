@@ -60,7 +60,7 @@ header {
 
 .container_solid .title_wrapper h1 {
     /* the text background */
-    background: url(img/kamchatka.png);
+    background: url(img/kamchatka.webp);
     background-size: 100vw auto;
     background-position: center;
 
@@ -76,7 +76,7 @@ header {
 
 .container_image {
     /* Grab a free image from unsplash */
-    background-image: url(img/kamchatka.png);
+    background-image: url(img/kamchatka.webp);
     background-size: 100vw auto;
     background-position: center;
     background-attachment: fixed;
