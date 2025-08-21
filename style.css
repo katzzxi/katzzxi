@@ -669,6 +669,7 @@ a {
 
     .right {
         margin-left: 0;
+        min-height: auto;
     }
 
     .skills {
@@ -845,11 +846,12 @@ a {
 
     .split-section {
         display: flex;
-        min-height: 100vh;
+        min-height: auto;
     }
 
     .right {
         margin-left: 0;
+        min-height: auto;
     }
 
     .skill {
